@@ -1,4 +1,3 @@
-using MagicVilla_VillaAPI.Logging;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +18,6 @@ builder.Services.AddControllers(option =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<ILogging, Logging>();
 
 var app = builder.Build();
 
