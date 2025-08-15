@@ -1,4 +1,6 @@
+using MagicVilla_VillaAPI.Data;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 //builder.Host.UseSerilog(); //making the serilog for logs instead of default console 
 
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 // Add services to the container.
+
 
 builder.Services.AddControllers(option =>
 {
